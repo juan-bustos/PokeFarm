@@ -6,14 +6,14 @@ namespace PokeFarm
 {
     public class UserSelection
     {
-        public static string GetUserString (string userInput = "test")
+        public static string GetUserString ()
         {
-            userInput = Console.ReadLine();
+            string userInput = Console.ReadLine();
             return userInput.ToLower();
         }
-        public static int GetUserInt (int userInput = 1)
+        public static int GetUserInt ()
         {
-            userInput = validEntry(Console.ReadLine());
+            int userInput = validEntry(Console.ReadLine());
             return userInput;
         }
         public static int validEntry (string validInput)
@@ -36,25 +36,9 @@ namespace PokeFarm
     }
     class MenuSelection
     {
-        public static int[] Menu()
+        public static int Menu()
         {
-            int[] selection = new int[1];
-            Console.WriteLine("\n  Select a Pokemon to create");
-            Console.WriteLine("  1. Arcanine");
-            Console.WriteLine("  2. Charmander");
-            Console.WriteLine("  3. Greninja");
-            Console.WriteLine("  4. Eevee");
-            Console.WriteLine("  5. Quit");
-            Console.Write("  Enter selection: ");
-            selection[0] = UserSelection.GetUserInt();
-            if (selection[0] == 5)
-            {
-                Environment.Exit(0);
-            }
-            return selection;
-        }
-        public static int SelectCompanion (int selection = 1)
-        {
+            int selection = 0;
             Console.WriteLine("\n  Select a Pokemon to create");
             Console.WriteLine("  1. Arcanine");
             Console.WriteLine("  2. Charmander");
@@ -63,8 +47,11 @@ namespace PokeFarm
             Console.WriteLine("  5. Quit");
             Console.Write("  Enter selection: ");
             selection = UserSelection.GetUserInt();
+            if (selection == 5)
+            {
+                Environment.Exit(0);
+            }
             return selection;
         }
-
     }
 }

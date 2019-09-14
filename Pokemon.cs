@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PokeFarm
 {
     public abstract class Pokemon
     {
-        protected static Random randomPokemon = new Random();
+        protected Random randomPokemon = new Random();
         public string pokemonName { get; set; }
         public virtual string pokemon { get;}
-        public int gender;
-        public string ability;
-        public string nature;
+        public int gender { get; set; }
+        public string ability { get; set; }
+        public string nature { get; set; }
         // Pokemon Speaks when you encounter it. 
         public virtual void Speak()
         {
